@@ -1,0 +1,9 @@
+identity,type,owner,purpose,expected_mfa,normal_hours_utc
+devon.admin,IAMUser,Devon Price,Cloud administrator,yes,13-23
+sara.ops,IAMUser,Sara Ortiz,Operations engineer,yes,13-23
+mlee,IAMUser,Min Lee,Developer,yes,13-23
+intern.qa,IAMUser,QA intern,Testing,yes,13-22
+ci-deploy,IAMUser,Platform team,CI pipeline - deploys from build servers only (10.0.0.0/8),no,any
+DevOpsAutomation,Role,Platform team,Infrastructure automation; can manage IAM users,n/a,any
+WebAppRole,Role,Web team,Application reads corp-app-assets,n/a,any
+SecurityAuditRole,Role,Security team,Daily read-only audit,n/a,06

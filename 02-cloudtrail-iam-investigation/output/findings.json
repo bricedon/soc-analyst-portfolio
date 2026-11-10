@@ -1,0 +1,351 @@
+{
+  "findings": [
+    {
+      "time": "2026-10-20T03:47:14Z",
+      "action": "CreateUser",
+      "actor": "DevOpsAutomation/mlee",
+      "origin": "mlee",
+      "chain": [
+        "DevOpsAutomation/mlee",
+        "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+      ],
+      "target": "backup-svc2",
+      "policy": "-",
+      "impact": "New IAM identity (possible persistence)",
+      "source_ip": "203.0.113.200",
+      "error": "",
+      "denied": false,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.200 not in known networks",
+        "no MFA in the session chain",
+        "outside the owner's normal hours"
+      ],
+      "verdict": "SUSPICIOUS",
+      "severity": "Critical",
+      "event_id": "e322e96d-33bf-4157-91d2-77f2cf321d63"
+    },
+    {
+      "time": "2026-10-20T03:48:02Z",
+      "action": "AttachUserPolicy",
+      "actor": "DevOpsAutomation/mlee",
+      "origin": "mlee",
+      "chain": [
+        "DevOpsAutomation/mlee",
+        "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+      ],
+      "target": "backup-svc2",
+      "policy": "AdministratorAccess",
+      "impact": "FULL control of every AWS service and resource",
+      "source_ip": "203.0.113.200",
+      "error": "",
+      "denied": false,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.200 not in known networks",
+        "no MFA in the session chain",
+        "grants AdministratorAccess",
+        "outside the owner's normal hours"
+      ],
+      "verdict": "SUSPICIOUS",
+      "severity": "Critical",
+      "event_id": "862fe231-beef-47fb-a9f4-46126201a9d3"
+    },
+    {
+      "time": "2026-10-20T03:48:38Z",
+      "action": "CreateAccessKey",
+      "actor": "DevOpsAutomation/mlee",
+      "origin": "mlee",
+      "chain": [
+        "DevOpsAutomation/mlee",
+        "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+      ],
+      "target": "backup-svc2",
+      "policy": "-",
+      "impact": "New long-term credential (persistence / exfiltration of access)",
+      "source_ip": "203.0.113.200",
+      "error": "",
+      "denied": false,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.200 not in known networks",
+        "no MFA in the session chain",
+        "outside the owner's normal hours"
+      ],
+      "verdict": "SUSPICIOUS",
+      "severity": "Critical",
+      "event_id": "05955fb9-f7d1-4ebd-9f75-c883d07884b7"
+    },
+    {
+      "time": "2026-10-20T03:56:13Z",
+      "action": "StopLogging",
+      "actor": "backup-svc2",
+      "origin": "mlee",
+      "chain": [
+        "backup-svc2",
+        "key AKIANYRVD7RXINFRPYZ4 created at 2026-10-20T03:48:38Z by DevOpsAutomation/mlee"
+      ],
+      "target": "org-trail",
+      "policy": "-",
+      "impact": "CloudTrail logging STOPPED (defense evasion)",
+      "source_ip": "203.0.113.200",
+      "error": "",
+      "denied": false,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.200 not in known networks",
+        "no MFA in the session chain",
+        "audit logging tampered",
+        "outside the owner's normal hours",
+        "actor backup-svc2 was created today",
+        "uses an access key created today"
+      ],
+      "verdict": "SUSPICIOUS",
+      "severity": "Critical",
+      "event_id": "3f9b6bb2-72ee-4a2e-b8e4-cb5c77d8c569"
+    },
+    {
+      "time": "2026-10-20T11:03:33Z",
+      "action": "AttachUserPolicy",
+      "actor": "ci-deploy",
+      "origin": "ci-deploy",
+      "chain": [
+        "ci-deploy"
+      ],
+      "target": "ci-deploy",
+      "policy": "AdministratorAccess",
+      "impact": "FULL control of every AWS service and resource",
+      "source_ip": "203.0.113.77",
+      "error": "AccessDenied",
+      "denied": true,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.77 not in known networks",
+        "grants AdministratorAccess"
+      ],
+      "verdict": "BLOCKED ATTEMPT",
+      "severity": "Medium",
+      "event_id": "3fd3be98-261f-40df-af82-d1a3a28cf7b1"
+    },
+    {
+      "time": "2026-10-20T11:03:52Z",
+      "action": "CreateAccessKey",
+      "actor": "ci-deploy",
+      "origin": "ci-deploy",
+      "chain": [
+        "ci-deploy"
+      ],
+      "target": "ci-deploy",
+      "policy": "-",
+      "impact": "New long-term credential (persistence / exfiltration of access)",
+      "source_ip": "203.0.113.77",
+      "error": "AccessDenied",
+      "denied": true,
+      "ticket": "",
+      "risks": [
+        "source IP 203.0.113.77 not in known networks"
+      ],
+      "verdict": "BLOCKED ATTEMPT",
+      "severity": "Medium",
+      "event_id": "5f93d180-c5ef-4cfb-b099-f27150cb407a"
+    },
+    {
+      "time": "2026-10-20T15:12:40Z",
+      "action": "AttachUserPolicy",
+      "actor": "devon.admin",
+      "origin": "devon.admin",
+      "chain": [
+        "devon.admin"
+      ],
+      "target": "intern.qa",
+      "policy": "ReadOnlyAccess",
+      "impact": "Read-only access to all services (can still read sensitive data)",
+      "source_ip": "198.51.100.10",
+      "error": "",
+      "denied": false,
+      "ticket": "CHG-2041",
+      "risks": [],
+      "verdict": "AUTHORIZED (CHG-2041)",
+      "severity": "Info",
+      "event_id": "1ef3ea44-50ea-4da7-a048-7e15580dc5ab"
+    }
+  ],
+  "incidents": [
+    {
+      "origin": "mlee",
+      "source_ip": "203.0.113.200",
+      "findings": [
+        {
+          "time": "2026-10-20T03:47:14Z",
+          "action": "CreateUser",
+          "actor": "DevOpsAutomation/mlee",
+          "origin": "mlee",
+          "chain": [
+            "DevOpsAutomation/mlee",
+            "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+          ],
+          "target": "backup-svc2",
+          "policy": "-",
+          "impact": "New IAM identity (possible persistence)",
+          "source_ip": "203.0.113.200",
+          "error": "",
+          "denied": false,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.200 not in known networks",
+            "no MFA in the session chain",
+            "outside the owner's normal hours"
+          ],
+          "verdict": "SUSPICIOUS",
+          "severity": "Critical",
+          "event_id": "e322e96d-33bf-4157-91d2-77f2cf321d63"
+        },
+        {
+          "time": "2026-10-20T03:48:02Z",
+          "action": "AttachUserPolicy",
+          "actor": "DevOpsAutomation/mlee",
+          "origin": "mlee",
+          "chain": [
+            "DevOpsAutomation/mlee",
+            "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+          ],
+          "target": "backup-svc2",
+          "policy": "AdministratorAccess",
+          "impact": "FULL control of every AWS service and resource",
+          "source_ip": "203.0.113.200",
+          "error": "",
+          "denied": false,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.200 not in known networks",
+            "no MFA in the session chain",
+            "grants AdministratorAccess",
+            "outside the owner's normal hours"
+          ],
+          "verdict": "SUSPICIOUS",
+          "severity": "Critical",
+          "event_id": "862fe231-beef-47fb-a9f4-46126201a9d3"
+        },
+        {
+          "time": "2026-10-20T03:48:38Z",
+          "action": "CreateAccessKey",
+          "actor": "DevOpsAutomation/mlee",
+          "origin": "mlee",
+          "chain": [
+            "DevOpsAutomation/mlee",
+            "assumed by mlee at 2026-10-20T03:44:34Z from 203.0.113.200"
+          ],
+          "target": "backup-svc2",
+          "policy": "-",
+          "impact": "New long-term credential (persistence / exfiltration of access)",
+          "source_ip": "203.0.113.200",
+          "error": "",
+          "denied": false,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.200 not in known networks",
+            "no MFA in the session chain",
+            "outside the owner's normal hours"
+          ],
+          "verdict": "SUSPICIOUS",
+          "severity": "Critical",
+          "event_id": "05955fb9-f7d1-4ebd-9f75-c883d07884b7"
+        },
+        {
+          "time": "2026-10-20T03:56:13Z",
+          "action": "StopLogging",
+          "actor": "backup-svc2",
+          "origin": "mlee",
+          "chain": [
+            "backup-svc2",
+            "key AKIANYRVD7RXINFRPYZ4 created at 2026-10-20T03:48:38Z by DevOpsAutomation/mlee"
+          ],
+          "target": "org-trail",
+          "policy": "-",
+          "impact": "CloudTrail logging STOPPED (defense evasion)",
+          "source_ip": "203.0.113.200",
+          "error": "",
+          "denied": false,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.200 not in known networks",
+            "no MFA in the session chain",
+            "audit logging tampered",
+            "outside the owner's normal hours",
+            "actor backup-svc2 was created today",
+            "uses an access key created today"
+          ],
+          "verdict": "SUSPICIOUS",
+          "severity": "Critical",
+          "event_id": "3f9b6bb2-72ee-4a2e-b8e4-cb5c77d8c569"
+        }
+      ],
+      "incident_id": "IAM-INC-01",
+      "severity": "Critical",
+      "first": "2026-10-20T03:47:14Z",
+      "last": "2026-10-20T03:56:13Z",
+      "outcome": "Actions SUCCEEDED",
+      "identities_touched": [
+        "backup-svc2",
+        "org-trail"
+      ]
+    },
+    {
+      "origin": "ci-deploy",
+      "source_ip": "203.0.113.77",
+      "findings": [
+        {
+          "time": "2026-10-20T11:03:33Z",
+          "action": "AttachUserPolicy",
+          "actor": "ci-deploy",
+          "origin": "ci-deploy",
+          "chain": [
+            "ci-deploy"
+          ],
+          "target": "ci-deploy",
+          "policy": "AdministratorAccess",
+          "impact": "FULL control of every AWS service and resource",
+          "source_ip": "203.0.113.77",
+          "error": "AccessDenied",
+          "denied": true,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.77 not in known networks",
+            "grants AdministratorAccess"
+          ],
+          "verdict": "BLOCKED ATTEMPT",
+          "severity": "Medium",
+          "event_id": "3fd3be98-261f-40df-af82-d1a3a28cf7b1"
+        },
+        {
+          "time": "2026-10-20T11:03:52Z",
+          "action": "CreateAccessKey",
+          "actor": "ci-deploy",
+          "origin": "ci-deploy",
+          "chain": [
+            "ci-deploy"
+          ],
+          "target": "ci-deploy",
+          "policy": "-",
+          "impact": "New long-term credential (persistence / exfiltration of access)",
+          "source_ip": "203.0.113.77",
+          "error": "AccessDenied",
+          "denied": true,
+          "ticket": "",
+          "risks": [
+            "source IP 203.0.113.77 not in known networks"
+          ],
+          "verdict": "BLOCKED ATTEMPT",
+          "severity": "Medium",
+          "event_id": "5f93d180-c5ef-4cfb-b099-f27150cb407a"
+        }
+      ],
+      "incident_id": "IAM-INC-02",
+      "severity": "Medium",
+      "first": "2026-10-20T11:03:33Z",
+      "last": "2026-10-20T11:03:52Z",
+      "outcome": "All attempts DENIED",
+      "identities_touched": []
+    }
+  ]
+}

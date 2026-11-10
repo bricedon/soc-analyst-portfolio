@@ -1,0 +1,11 @@
+cve,in_kev,kev_date_added,epss,public_exploit,ransomware_use,observed_in_environment,notes
+CVE-2026-90011,no,,0.004,no,no,no,Vendor advisory only; no exploit seen
+CVE-2026-90020,yes,2026-10-28,0.94,yes,yes,no,Mass exploitation reported against internet-facing VPN gateways
+CONFIG-RDP-EXPOSED,no,,,yes,yes,yes,Brute force and successful logon observed in our logs (SOC lab 01 - INC-0001)
+CVE-2026-90044,no,,0.021,yes,no,no,
+CVE-2026-90052,no,,0.08,yes,no,no,Proof-of-concept on GitHub; requires a valid database login
+CVE-2026-90063,yes,2026-10-30,0.71,yes,no,no,Exploited through malicious advertising
+CONFIG-SMBV1,no,,0.6,yes,yes,no,Wormable exploits exist for SMBv1
+CONFIG-DEFAULT-CREDS,no,,,yes,no,no,Default passwords are public in the vendor manual
+CONFIG-TLS10,no,,,no,no,no,
+CVE-2026-90015,no,,0.003,no,no,no,

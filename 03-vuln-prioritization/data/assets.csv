@@ -1,0 +1,9 @@
+asset_id,hostname,role,environment,exposure,criticality,host_count,owner,compensating_controls,notes
+A01,vpn-gw01,Remote-access VPN appliance (all staff),production,internet,5,1,Network team,none,Single point of entry for remote employees
+A02,web-shop01,Public e-commerce website,production,internet,4,1,Web team,WAF in blocking mode,
+A03,db-erp01,ERP database (finance + customer data),production,internal-segmented,5,1,DBA team,segmentation: only app servers can connect,
+A04,lab-test07,QA test server,test,isolated,1,1,QA team,isolated VLAN with no route to production,Decommission planned 2026-12-15
+A05,file01,Department file server,production,internal,4,1,IT Ops,none,
+A06,wks-fleet,Windows 11 workstations,production,internal,3,150,IT Ops,none,Users browse the internet
+A07,mfp-printer01,Multifunction printer / scanner,production,internal,2,1,IT Ops,none,
+A08,jump-rdp01,RDP jump host for IT admins,production,internet,4,1,IT Ops,none,See SOC lab 01 incident INC-0001

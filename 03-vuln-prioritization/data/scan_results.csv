@@ -1,0 +1,11 @@
+finding_id,asset_id,cve,title,cvss_base,cvss_vector,port,detected,fix
+F01,A04,CVE-2026-90011,TestRunner agent remote code execution,9.8,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H,8080/tcp,2026-11-02,Upgrade TestRunner agent to 4.2.1 or remove the agent
+F02,A01,CVE-2026-90020,VPN gateway path traversal exposes session tokens,7.5,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N,443/tcp,2026-11-02,Apply vendor firmware 9.4.7; then invalidate all VPN sessions and rotate admin credentials
+F03,A08,CONFIG-RDP-EXPOSED,RDP exposed to the internet without MFA,5.3,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N,3389/tcp,2026-11-02,Remove the public RDP rule; allow RDP only through the VPN with MFA
+F04,A02,CVE-2026-90044,Web framework reflected cross-site scripting,6.1,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N,443/tcp,2026-11-02,Upgrade web framework to 5.8.3
+F05,A03,CVE-2026-90052,Database server privilege escalation by authenticated user,8.8,CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H,1433/tcp,2026-11-02,Apply database cumulative update CU14
+F06,A06,CVE-2026-90063,Browser engine remote code execution (malicious web page),8.8,CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H,-,2026-11-02,Push browser 131.0.2 through endpoint management; force restart within 24h
+F07,A05,CONFIG-SMBV1,SMBv1 protocol enabled,8.1,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H,445/tcp,2026-11-02,Disable SMBv1 (Set-SmbServerConfiguration -EnableSMB1Protocol $false) after checking legacy clients
+F08,A07,CONFIG-DEFAULT-CREDS,Printer web admin uses default credentials,7.5,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N,80/tcp,2026-11-02,Set a unique admin password and store it in the password vault
+F09,A02,CONFIG-TLS10,TLS 1.0 enabled,3.7,CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:L/I:N/A:N,443/tcp,2026-11-02,Disable TLS 1.0 and 1.1 on the load balancer
+F10,A04,CVE-2026-90015,TestRunner web console information disclosure,5.3,CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:N/A:N,8080/tcp,2026-11-02,Upgrade TestRunner agent to 4.2.1 or remove the agent

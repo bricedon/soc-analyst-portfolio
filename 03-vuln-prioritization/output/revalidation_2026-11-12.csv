@@ -1,0 +1,12 @@
+finding_id,priority,hostname,title,due,status
+F02,P1,vpn-gw01,VPN gateway path traversal exposes session tokens,2026-11-05,Closed - verified by rescan
+F03,P1,jump-rdp01,RDP exposed to the internet without MFA,2026-11-09,Still open - OVERDUE
+F06,P1,wks-fleet,Browser engine remote code execution (malicious web page),2026-11-09,Partially remediated (9/150 hosts still vulnerable) - OVERDUE
+F07,P2,file01,SMBv1 protocol enabled,2026-12-02,Closed - verified by rescan
+F05,P3,db-erp01,Database server privilege escalation by authenticated user,2027-01-31,Still open
+F04,P3,web-shop01,Web framework reflected cross-site scripting,2027-01-31,Still open
+F08,P3,mfp-printer01,Printer web admin uses default credentials,2027-01-31,Still open
+F09,P4,web-shop01,TLS 1.0 enabled,2027-05-01,Still open
+F01,P4,lab-test07,TestRunner agent remote code execution,2027-05-01,Still open
+F10,P4,lab-test07,TestRunner web console information disclosure,2027-05-01,Still open
+F11,?,A01,VPN gateway web portal denial of service,-,NEW finding - triage and score it
