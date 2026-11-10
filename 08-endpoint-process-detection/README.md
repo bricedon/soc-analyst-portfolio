@@ -24,7 +24,7 @@ Talking points: **(1)** The process tree tells the story in one screen: a user o
 
 ## Example output
 ```text
-107 process events · 12 rule hits · 7 active alerts · 5 suppressed by allowlist
+107 process events | 12 rule hits | 7 active alerts | 5 suppressed by allowlist
 
 2026-10-22 10:17:28.000 WKS-0113  High    OFFICE_SPAWNS_SHELL  winword.exe started cmd.exe
 2026-10-22 10:17:29.000 WKS-0113  High    ENCODED_POWERSHELL   encoded PowerShell command

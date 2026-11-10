@@ -115,7 +115,7 @@ def tree(events: List[Dict], host: str) -> List[str]:
 
     def walk(e, depth):
         cmd = e["CommandLine"]
-        lines.append(f'{"   " * depth}{"└─ " if depth else ""}{e["UtcTime"][11:19]}  {base(e["Image"])}  '
+        lines.append(f'{"   " * depth}{"\\_ " if depth else ""}{e["UtcTime"][11:19]}  {base(e["Image"])}  '
                      f'[{e["User"]}]  {cmd[:90] + ("..." if len(cmd) > 90 else "")}')
         for child in by_parent.get(e["ProcessGuid"], []):
             walk(child, depth + 1)
@@ -141,7 +141,7 @@ def main(argv=None) -> int:
     allow = [] if a.no_allowlist else json.load(open(a.allowlist, encoding="utf-8"))
     alerts = detect(events, allow)
     active = [x for x in alerts if not x["suppressed"]]
-    print(f"{len(events)} process events · {len(alerts)} rule hits · {len(active)} active alerts · "
+    print(f"{len(events)} process events | {len(alerts)} rule hits | {len(active)} active alerts | "
           f"{len(alerts) - len(active)} suppressed by allowlist\n")
     print(f"{'TIME (UTC)':<23} {'HOST':<9} {'SEV':<7} {'RULE':<20} DETAIL")
     print("-" * 110)
