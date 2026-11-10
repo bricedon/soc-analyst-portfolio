@@ -1,0 +1,251 @@
+[
+  {
+    "file": "E1-vendor-invoice.eml",
+    "subject": "Invoice INV-55821 for October",
+    "from": "Acme Supplies Billing <billing@acme-supplies.example>",
+    "reply_to": "-",
+    "to": "Rachel Brown <rachel.brown@corp.example>",
+    "date": "Tue, 03 Nov 2026 14:02:05 +0000",
+    "origin_ip": "198.51.100.25",
+    "auth": {
+      "spf": "pass",
+      "dkim": "pass",
+      "dmarc": "pass"
+    },
+    "links": [
+      {
+        "href": "https://portal.acme-supplies.example/invoices/55821",
+        "text": "customer portal",
+        "domain": "portal.acme-supplies.example"
+      }
+    ],
+    "attachments": [
+      {
+        "filename": "INV-55821.pdf",
+        "type": "application/pdf",
+        "size": 78,
+        "sha256": "fe269af4c7d07d3fb4fd702d8239aaf5e8cd3a8a27971ea82d71559ad5f20d2c",
+        "risky_extension": false
+      }
+    ],
+    "findings": [],
+    "points": [],
+    "score": 0,
+    "verdict": "LIKELY BENIGN",
+    "type": "Legitimate / marketing",
+    "iocs_defanged": [],
+    "actions": [
+      "Release / close as legitimate; explain to the reporter why (good reporting, keep it up)"
+    ],
+    "reported_by_user": null
+  },
+  {
+    "file": "E2-m365-password.eml",
+    "subject": "Action required: your password expires today",
+    "from": "Microsoft 365 <no-reply@micros0ft-account.example>",
+    "reply_to": "support@account-verify.example",
+    "to": "Devon Price <devon.price@corp.example>",
+    "date": "Wed, 04 Nov 2026 07:41:49 +0000",
+    "origin_ip": "203.0.113.150",
+    "auth": {
+      "spf": "pass",
+      "dkim": "none",
+      "dmarc": "none"
+    },
+    "links": [
+      {
+        "href": "http://micros0ft-account.example/owa/login.php?u=devon.price",
+        "text": "https://login.microsoftonline.com/verify",
+        "domain": "micros0ft-account.example",
+        "mismatch": "text shows login.microsoftonline.com, link goes to micros0ft-account.example"
+      }
+    ],
+    "attachments": [],
+    "findings": [
+      "sender domain has no DMARC policy",
+      "lookalike domain: micros0ft-account.example imitates microsoft.com",
+      "Reply-To (support@account-verify.example) differs from From (no-reply@micros0ft-account.example)",
+      "link text shows login.microsoftonline.com but points to micros0ft-account.example",
+      "login link without HTTPS",
+      "link to lookalike domain micros0ft-account.example",
+      "social-engineering language: urgency (immediately, today, within 24 hours), credentials (password, verify your account, login, expires), threat (suspended)"
+    ],
+    "points": [
+      5,
+      30,
+      15,
+      25,
+      10,
+      20,
+      15
+    ],
+    "score": 100,
+    "verdict": "MALICIOUS",
+    "type": "Credential phishing (link)",
+    "iocs_defanged": [
+      "203[.]0[.]113[.]150",
+      "micros0ft-account[.]example",
+      "no-reply@micros0ft-account[.]example",
+      "support@account-verify[.]example"
+    ],
+    "actions": [
+      "Do not interact; thank the reporter",
+      "Search all mailboxes for the same sender / subject / URL and purge",
+      "Block the IOCs below (sender address, URLs, IPs) at mail gateway, proxy and DNS - never our own domain or a whole free-mail provider",
+      "Check proxy / DNS logs: did anyone click or submit credentials?",
+      "For anyone who clicked: reset password, revoke sessions, check sign-in logs and MFA prompts"
+    ],
+    "reported_by_user": null
+  },
+  {
+    "file": "E3-ceo-gift-cards.eml",
+    "subject": "Quick favor - confidential",
+    "from": "Kiran Patel <kiran.patel.office@gmail.com>",
+    "reply_to": "kp.private.office@mailbox.example",
+    "to": "Rachel Brown <rachel.brown@corp.example>",
+    "date": "Thu, 05 Nov 2026 16:20:01 +0000",
+    "origin_ip": "192.0.2.41",
+    "auth": {
+      "spf": "pass",
+      "dkim": "pass",
+      "dmarc": "pass"
+    },
+    "links": [],
+    "attachments": [],
+    "findings": [
+      "Reply-To (kp.private.office@mailbox.example) differs from From (kiran.patel.office@gmail.com)",
+      "display name \"Kiran Patel\" matches Chief Executive Officer Kiran Patel but address is kiran.patel.office@gmail.com",
+      "executive name on a free email service",
+      "social-engineering language: urgency (urgent, before 5pm), payment (gift card), secrecy (confidential, keep this, can't talk)",
+      "payment request + secrecy: business email compromise pattern"
+    ],
+    "points": [
+      15,
+      30,
+      10,
+      15,
+      15
+    ],
+    "score": 85,
+    "verdict": "MALICIOUS",
+    "type": "Business Email Compromise (impersonation)",
+    "iocs_defanged": [
+      "kiran[.]patel[.]office@gmail[.]com",
+      "kp[.]private[.]office@mailbox[.]example"
+    ],
+    "actions": [
+      "Do not interact; thank the reporter",
+      "Search all mailboxes for the same sender / subject / URL and purge",
+      "Block the IOCs below (sender address, URLs, IPs) at mail gateway, proxy and DNS - never our own domain or a whole free-mail provider",
+      "Check proxy / DNS logs: did anyone click or submit credentials?",
+      "Call the executive on a known number; warn Finance",
+      "Add an 'external sender' banner and a display-name impersonation rule"
+    ],
+    "reported_by_user": null
+  },
+  {
+    "file": "E4-helpdesk-reset.eml",
+    "subject": "Mandatory password reset - open the attached form",
+    "from": "IT Helpdesk <helpdesk@corp.example>",
+    "reply_to": "-",
+    "to": "All Staff <all-staff@corp.example>",
+    "date": "Fri, 06 Nov 2026 10:05:37 +0000",
+    "origin_ip": "203.0.113.66",
+    "auth": {
+      "spf": "fail",
+      "dkim": "fail",
+      "dmarc": "fail"
+    },
+    "links": [],
+    "attachments": [
+      {
+        "filename": "Password_Reset_Form.html",
+        "type": "text/html",
+        "size": 143,
+        "sha256": "30344391b60f31c00622e8d2cb0bd65e9ce533bdd163bbadefe499d4c26fe429",
+        "risky_extension": true,
+        "form_actions": [
+          "http://203.0.113.66/collect.php"
+        ],
+        "password_fields": 1
+      }
+    ],
+    "findings": [
+      "DMARC fail: the From domain did not authorize this message",
+      "SPF fail",
+      "DKIM fail",
+      "claims to come from OUR domain (corp.example) but is not authenticated: spoofing",
+      "risky attachment type: Password_Reset_Form.html",
+      "attachment Password_Reset_Form.html contains a password form posting to http://203.0.113.66/collect.php",
+      "social-engineering language: urgency (immediately), credentials (password, sign in)"
+    ],
+    "points": [
+      30,
+      10,
+      10,
+      25,
+      20,
+      30,
+      10
+    ],
+    "score": 100,
+    "verdict": "MALICIOUS",
+    "type": "Credential phishing (HTML attachment)",
+    "iocs_defanged": [
+      "203[.]0[.]113[.]66",
+      "hxxp://203[.]0[.]113[.]66/collect[.]php"
+    ],
+    "actions": [
+      "Do not interact; thank the reporter",
+      "Search all mailboxes for the same sender / subject / URL and purge",
+      "Block the IOCs below (sender address, URLs, IPs) at mail gateway, proxy and DNS - never our own domain or a whole free-mail provider",
+      "Check proxy / DNS logs: did anyone click or submit credentials?",
+      "For anyone who opened the form: reset password, revoke sessions, check sign-in logs",
+      "Our domain was spoofed: check DMARC policy is p=reject so receivers drop these",
+      "Mail gateway rule: quarantine HTML attachments from external senders"
+    ],
+    "reported_by_user": null
+  },
+  {
+    "file": "E5-newsletter-reported.eml",
+    "subject": "5 new features in CloudNotes this month",
+    "from": "CloudNotes <news@cloudnotes.example>",
+    "reply_to": "-",
+    "to": "Sana Patel <sana.patel@corp.example>",
+    "date": "Mon, 09 Nov 2026 13:00:09 +0000",
+    "origin_ip": "198.51.100.90",
+    "auth": {
+      "spf": "pass",
+      "dkim": "pass",
+      "dmarc": "pass"
+    },
+    "links": [
+      {
+        "href": "https://click.email.cloudnotes.example/ls/click?upn=8f2a1",
+        "text": "Read the release notes",
+        "domain": "click.email.cloudnotes.example"
+      },
+      {
+        "href": "https://click.email.cloudnotes.example/ls/click?upn=77c1d",
+        "text": "Try the new templates",
+        "domain": "click.email.cloudnotes.example"
+      },
+      {
+        "href": "https://click.email.cloudnotes.example/unsubscribe?u=4411",
+        "text": "Unsubscribe",
+        "domain": "click.email.cloudnotes.example"
+      }
+    ],
+    "attachments": [],
+    "findings": [],
+    "points": [],
+    "score": 0,
+    "verdict": "LIKELY BENIGN",
+    "type": "Legitimate / marketing",
+    "iocs_defanged": [],
+    "actions": [
+      "Release / close as legitimate; explain to the reporter why (good reporting, keep it up)"
+    ],
+    "reported_by_user": "sana.patel@corp.example"
+  }
+]

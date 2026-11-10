@@ -1,0 +1,29 @@
+Return-Path: <bounce@acme-supplies.example>
+Received: from mail.acme-supplies.example (mail.acme-supplies.example [198.51.100.25])
+	by mx1.corp.example with ESMTPS id 4XyZ1; Tue, 3 Nov 2026 14:02:11 +0000
+Authentication-Results: mx1.corp.example;
+	spf=pass smtp.mailfrom=acme-supplies.example;
+	dkim=pass header.d=acme-supplies.example;
+	dmarc=pass header.from=acme-supplies.example
+From: Acme Supplies Billing <billing@acme-supplies.example>
+To: Rachel Brown <rachel.brown@corp.example>
+Subject: Invoice INV-55821 for October
+Date: Tue, 3 Nov 2026 14:02:05 +0000
+Message-ID: <inv55821@acme-supplies.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="b1"
+
+--b1
+Content-Type: text/html; charset="utf-8"
+
+<p>Hello Rachel,</p>
+<p>Please find attached invoice INV-55821 for October, due on December 3.
+You can also view it in the <a href="https://portal.acme-supplies.example/invoices/55821">customer portal</a>.</p>
+<p>Thank you,<br>Acme Supplies Billing</p>
+--b1
+Content-Type: application/pdf; name="INV-55821.pdf"
+Content-Disposition: attachment; filename="INV-55821.pdf"
+Content-Transfer-Encoding: base64
+
+JVBERi0xLjQKJcfsj6IKMSAwIG9iago8PC9UeXBlL0NhdGFsb2c+PgplbmRvYmoKdHJhaWxlcgo8PC9Sb290IDEgMCBSPj4KJSVFT0YK
+--b1--

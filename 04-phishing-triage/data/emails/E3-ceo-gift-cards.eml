@@ -1,0 +1,24 @@
+Return-Path: <kiran.patel.office@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com [192.0.2.41])
+	by mx1.corp.example with ESMTPS id 7HhT3; Thu, 5 Nov 2026 16:20:03 +0000
+Authentication-Results: mx1.corp.example;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com;
+	dmarc=pass header.from=gmail.com
+From: Kiran Patel <kiran.patel.office@gmail.com>
+Reply-To: kp.private.office@mailbox.example
+To: Rachel Brown <rachel.brown@corp.example>
+Subject: Quick favor - confidential
+Date: Thu, 5 Nov 2026 16:20:01 +0000
+Message-ID: <CAF8x@mail.gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+
+Rachel,
+
+Are you at your desk? I need a quick favor. I am in a board meeting and can't talk.
+Please buy 8 gift cards of $250 each for a client appreciation event, urgent, before 5pm.
+Scratch the codes and send me photos by reply. Keep this confidential for now, I will explain later.
+
+Kiran
+Sent from my phone

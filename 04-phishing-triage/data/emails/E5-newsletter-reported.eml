@@ -1,0 +1,21 @@
+Return-Path: <bounce-7731@email.cloudnotes.example>
+Received: from o1.email.cloudnotes.example (o1.email.cloudnotes.example [198.51.100.90])
+	by mx1.corp.example with ESMTPS id 5MnB5; Mon, 9 Nov 2026 13:00:12 +0000
+Authentication-Results: mx1.corp.example;
+	spf=pass smtp.mailfrom=email.cloudnotes.example;
+	dkim=pass header.d=cloudnotes.example;
+	dmarc=pass header.from=cloudnotes.example
+From: CloudNotes <news@cloudnotes.example>
+To: Sana Patel <sana.patel@corp.example>
+Subject: 5 new features in CloudNotes this month
+Date: Mon, 9 Nov 2026 13:00:09 +0000
+Message-ID: <nl-2026-11@cloudnotes.example>
+X-Reported-By-User: sana.patel@corp.example
+MIME-Version: 1.0
+Content-Type: text/html; charset="utf-8"
+
+<p>Hi Sana, here is what is new in CloudNotes this month.</p>
+<p><a href="https://click.email.cloudnotes.example/ls/click?upn=8f2a1">Read the release notes</a></p>
+<p><a href="https://click.email.cloudnotes.example/ls/click?upn=77c1d">Try the new templates</a></p>
+<p>You receive this email because you created a CloudNotes account.
+<a href="https://click.email.cloudnotes.example/unsubscribe?u=4411">Unsubscribe</a></p>
