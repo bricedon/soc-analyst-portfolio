@@ -1,0 +1,34 @@
+title: Office Application Spawns a Command Shell
+id: 6f1a8c52-3b7e-4d0c-9a51-2b8e4c6d7f01
+status: experimental
+description: Word, Excel, PowerPoint or Outlook starting a shell or script host - typical of malicious macro documents.
+references:
+  - https://attack.mitre.org/techniques/T1204/002/
+author: Brice Donfack (lab)
+date: 2026-11-10
+tags:
+  - attack.execution
+  - attack.t1204.002
+  - attack.t1059.001
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_parent:
+    ParentImage|endswith:
+      - '\WINWORD.EXE'
+      - '\EXCEL.EXE'
+      - '\POWERPNT.EXE'
+      - '\OUTLOOK.EXE'
+  selection_child:
+    Image|endswith:
+      - '\cmd.exe'
+      - '\powershell.exe'
+      - '\pwsh.exe'
+      - '\wscript.exe'
+      - '\cscript.exe'
+      - '\mshta.exe'
+  condition: selection_parent and selection_child
+falsepositives:
+  - Office add-ins that legitimately start scripts (document them and exclude by add-in path)
+level: high

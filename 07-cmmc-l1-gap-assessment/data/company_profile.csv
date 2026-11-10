@@ -1,0 +1,8 @@
+field,value
+company,Northwind Precision Parts LLC (fictional)
+employees,32
+business,CNC machined parts for a defense prime contractor
+contract_data,Federal Contract Information (FCI) only - no CUI
+required_level,CMMC Level 1 (self-assessment + annual affirmation)
+assessment_date,2026-11-15
+assessor,Brice Donfack (practice assessment)

@@ -1,0 +1,11 @@
+# Generated with pySigma + pysigma-backend-splunk (no field mapping pipeline applied)
+
+## PowerShell Encoded Command
+(Image IN ("*\\powershell.exe", "*\\pwsh.exe")) (CommandLine IN ("* -enc *", "* -EncodedCommand *", "* -e *")) NOT (ParentImage="C:\\Windows\\CCM\\CcmExec.exe" User="*SYSTEM*")
+
+## Office Application Spawns a Command Shell
+(ParentImage IN ("*\\WINWORD.EXE", "*\\EXCEL.EXE", "*\\POWERPNT.EXE", "*\\OUTLOOK.EXE")) (Image IN ("*\\cmd.exe", "*\\powershell.exe", "*\\pwsh.exe", "*\\wscript.exe", "*\\cscript.exe", "*\\mshta.exe"))
+
+## Renamed PowerShell Binary
+OriginalFileName="PowerShell.EXE" NOT (Image IN ("*\\powershell.exe", "*\\powershell_ise.exe"))
+

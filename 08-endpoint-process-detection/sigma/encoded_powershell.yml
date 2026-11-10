@@ -1,0 +1,32 @@
+title: PowerShell Encoded Command
+id: 0c3b9e47-8d2a-4f6b-b1c5-7e9a2d4f6a02
+status: experimental
+description: PowerShell started with an encoded command; decode it before deciding. Exclude known management tools narrowly.
+references:
+  - https://attack.mitre.org/techniques/T1027/010/
+author: Brice Donfack (lab)
+date: 2026-11-10
+tags:
+  - attack.defense_evasion
+  - attack.t1027.010
+  - attack.t1059.001
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection_img:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\pwsh.exe'
+  selection_flag:
+    CommandLine|contains:
+      - ' -enc '
+      - ' -EncodedCommand '
+      - ' -e '
+  filter_sccm:
+    ParentImage: 'C:\Windows\CCM\CcmExec.exe'
+    User|contains: 'SYSTEM'
+  condition: selection_img and selection_flag and not filter_sccm
+falsepositives:
+  - Configuration management tools (SCCM, Intune) - keep the exclusion as narrow as possible
+level: high

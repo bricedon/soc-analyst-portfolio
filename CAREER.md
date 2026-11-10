@@ -16,11 +16,20 @@
 | **Result** | [ My verdicts, my escalation time, the report I wrote, the tuning I made and its measured effect. ] |
 | **Lesson** | [ e.g. "A score is a hint, not proof"; "the most dangerous attack didn't trigger the rule". ] |
 
-## 02 · AWS CloudTrail & IAM Investigation Lab
-_Template added when the lab is published._
+## Labs 02–08: CV line templates
+> Same rule: fill `[ ]` only with your own results.
 
-## 03 · Vulnerability Prioritization & Remediation Lab
-_Template added when the lab is published._
+| Lab | CV line (template) |
+|---|---|
+| 02 CloudTrail & IAM | Investigated synthetic AWS CloudTrail logs to trace an IAM privilege escalation through an assumed role back to a no-MFA console login; identified [ __ ] persistence actions and wrote a pre-containment checklist. |
+| 03 Vulnerability Mgmt | Built a risk-based prioritization of [ __ ] findings combining CVSS, CISA KEV, EPSS, exposure and asset criticality; produced a remediation register, an SLA-driven ticket and a rescan-based revalidation. |
+| 04 Phishing Triage | Built a Python .eml triage tool (SPF/DKIM/DMARC, lookalike domains, link and attachment analysis); classified [ __ ] reported emails, including a BEC that passed email authentication. |
+| 05 Beaconing Hunt | Hunted C2 beaconing in [ __ ] connection records using interval regularity and destination prevalence; separated a 60-second beacon from legitimate periodic traffic. |
+| 06 Linux Investigation | Reconstructed a Linux SSH compromise from auth.log (brute force, sudo misuse, UID-0 backdoor, cron persistence) and defined rebuild and hardening steps. |
+| 07 CMMC L1 | Performed a practice CMMC Level 1 gap assessment (15 requirements mapped to NIST SP 800-171), produced an affirmation-readiness decision and a capacity-based remediation plan. |
+| 08 Endpoint Detection | Wrote [ __ ] process-creation detections (Python + Sigma, validated with pySigma) for macro, encoded-PowerShell, LOLBin and renamed-binary techniques, with a narrow allowlist that keeps detection intact. |
+
+**STAR:** use the same template as lab 01 for each lab you present. Situation = the lab scenario, Task = the decision, Action = your queries and reasoning, Result = your verdict and the measured effect of your improvement.
 
 ---
 

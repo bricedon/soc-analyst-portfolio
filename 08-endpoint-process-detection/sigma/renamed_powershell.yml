@@ -1,0 +1,25 @@
+title: Renamed PowerShell Binary
+id: 9a7d2e18-4c6f-4b3a-8e0d-1f5b7c9e3a03
+status: experimental
+description: The PE OriginalFileName says PowerShell but the file has another name - used to evade rules that only check Image.
+references:
+  - https://attack.mitre.org/techniques/T1036/003/
+author: Brice Donfack (lab)
+date: 2026-11-10
+tags:
+  - attack.defense_evasion
+  - attack.t1036.003
+logsource:
+  category: process_creation
+  product: windows
+detection:
+  selection:
+    OriginalFileName: 'PowerShell.EXE'
+  filter_real:
+    Image|endswith:
+      - '\powershell.exe'
+      - '\powershell_ise.exe'
+  condition: selection and not filter_real
+falsepositives:
+  - Rare; some portable admin toolkits
+level: high

@@ -12,7 +12,7 @@
 | Revalidation after rescan | [output/revalidation_2026-11-12.csv](output/revalidation_2026-11-12.csv) |
 | Method and how to defend a priority | [docs/prioritization-method.md](docs/prioritization-method.md) |
 | Inputs | [assets](data/assets.csv) · [scan](data/scan_results.csv) · [threat intel](data/threat_intel.csv) · [rescan](data/rescan_2026-11-12.csv) |
-| Tests (8) | [test_vuln_lab.py](test_vuln_lab.py) |
+| Tests (7) | [test_vuln_lab.py](test_vuln_lab.py) |
 
 ## ▶️ 3-minute demo (Windows PowerShell)
 ```powershell
@@ -20,7 +20,7 @@ cd soc-analyst-portfolio\03-vuln-prioritization
 python prioritize.py                                       # ranked register
 python prioritize.py ticket F02                            # P1 ticket with 72-hour SLA
 python prioritize.py revalidate data\rescan_2026-11-12.csv # what is really fixed?
-python -m unittest                                         # 8 tests pass
+python -m unittest                                         # 7 tests pass
 ```
 Talking points: **(1)** F02 (CVSS 7.5) is #1: CISA KEV, used by ransomware, internet-facing, the entry point for every remote employee. **(2)** F01 (CVSS 9.8) is #9: isolated VLAN, no exploit, decommission planned. I would still **verify** that isolation. **(3)** F03 is only CVSS 5.3, but we **saw** it being attacked in lab 01, so it becomes P1. **(4)** The rescan shows that "patched" is not "fixed": 9 of 150 workstations are still vulnerable, F03 is overdue, and a new VPN finding appeared.
 
@@ -45,6 +45,6 @@ F11  ?   A01            -           NEW finding - triage and score it
 ## What was tested
 | Part | Status |
 |---|---|
-| `prioritize.py` (rank, ticket, revalidate), 8 unit tests | ✅ Executed (Python 3.13) |
+| `prioritize.py` (rank, ticket, revalidate), 7 unit tests | ✅ Executed (Python 3.13) |
 
 All data is fictional. **CVE-2026-9xxxx identifiers are invented for this lab** and do not refer to real vulnerabilities; KEV and EPSS values are simulated.

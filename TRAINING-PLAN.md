@@ -43,3 +43,14 @@ Quand tu reviens, écris **« Entraînement du jour »**. Je pars du dernier exe
 | S6-J3 | Relier les résultats à un contrôle (NIST 800-53 / CMMC) | GRC / Compliance | Mapping contrôle → preuve |
 | S6-J4 | Préparer les lignes de CV et les STAR avec **tes** résultats réels | Tous | `CAREER.md` complété |
 | S6-J5 | Simulation d'entretien finale : les 3 labs en 10 minutes | Tous | Note finale + plan de suite |
+
+## Semaines bonus (7 à 11) : un lab par semaine
+Même rythme : J1 reproduire, J2 enquêter sans indices, J3 trouver la limite de l'outil, J4 l'améliorer (code + test), J5 présenter en anglais (3 min + questions).
+
+| Semaine | Lab | J1 (exercice de départ) | J4 (amélioration attendue) |
+|---|---|---|---|
+| 7 | 04 Phishing | [EX01 file phishing](04-phishing-triage/training/EX01-file-phishing.md) | Détecter le phishing par QR code ou par une pièce jointe .svg |
+| 8 | 05 Beaconing | [EX01 chasse beacon](05-network-beaconing/training/EX01-chasse-beacon.md) | Ajouter la détection de domaines DNS rares (logs DNS) |
+| 9 | 06 Linux | [EX01 serveur Linux](06-linux-ssh-investigation/training/EX01-serveur-linux.md) | Règle « nouvelle clé SSH ajoutée à authorized_keys » |
+| 10 | 07 CMMC | [EX01 évaluation CMMC](07-cmmc-l1-gap-assessment/training/EX01-evaluation-cmmc.md) | Ajouter les objectifs d'évaluation d'une exigence et une preuve pour chacun |
+| 11 | 08 Endpoint | [EX01 arbre de processus](08-endpoint-process-detection/training/EX01-arbre-processus.md) | Corriger le trou de la règle encodée et le filtre Sigma trop large |

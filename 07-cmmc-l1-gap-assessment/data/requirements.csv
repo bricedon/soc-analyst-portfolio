@@ -1,0 +1,16 @@
+id,family,short_name,requirement_summary,nist_800_171
+AC.L1-B.1.I,Access Control,Authorized access,"Limit system access to authorized users, processes acting for users, and devices",3.1.1
+AC.L1-B.1.II,Access Control,Transaction & function control,Limit users to the types of transactions and functions they are permitted to run,3.1.2
+AC.L1-B.1.III,Access Control,External connections,Verify and control or limit connections to and use of external systems,3.1.20
+AC.L1-B.1.IV,Access Control,Control public information,Control information posted or processed on publicly accessible systems,3.1.22
+IA.L1-B.1.V,Identification & Authentication,Identification,"Identify system users, processes acting for users, and devices",3.5.1
+IA.L1-B.1.VI,Identification & Authentication,Authentication,"Authenticate users, processes and devices before allowing access",3.5.2
+MP.L1-B.1.VII,Media Protection,Media disposal,Sanitize or destroy media containing FCI before disposal or reuse,3.8.3
+PE.L1-B.1.VIII,Physical Protection,Limit physical access,"Limit physical access to systems, equipment and operating environments to authorized people",3.10.1
+PE.L1-B.1.IX,Physical Protection,Manage visitors & physical access,"Escort and monitor visitors, keep physical access logs, control physical access devices",3.10.3/3.10.4/3.10.5
+SC.L1-B.1.X,System & Communications Protection,Boundary protection,Monitor control and protect communications at external and key internal boundaries,3.13.1
+SC.L1-B.1.XI,System & Communications Protection,Public-access system separation,Put publicly accessible system components in subnetworks separated from internal networks,3.13.5
+SI.L1-B.1.XII,System & Information Integrity,Flaw remediation,"Identify, report and correct system flaws in a timely manner",3.14.1
+SI.L1-B.1.XIII,System & Information Integrity,Malicious code protection,Protect against malicious code at appropriate locations,3.14.2
+SI.L1-B.1.XIV,System & Information Integrity,Update malicious code protection,Update malicious code protection when new releases are available,3.14.4
+SI.L1-B.1.XV,System & Information Integrity,System & file scanning,Run periodic scans and real-time scans of files from external sources,3.14.5

@@ -1,0 +1,10 @@
+order,id,short_name,status,gap,risk,effort_hours,quick_win,owner,target
+1,SI.L1-B.1.XV,System & file scanning,Not Assessed,"No evidence received for scheduled scans and real-time scanning of downloads, email and USB",Medium,1,True,IT Manager,2026-11-22
+2,AC.L1-B.1.I,Authorized access,Partial,3 accounts of employees who left in 2026 are still enabled,High,2,True,IT Manager,2026-11-22
+3,SI.L1-B.1.XII,Flaw remediation,Not Met,Two P1 vulnerabilities are past their remediation date (RDP exposure; browser on 9 PCs),High,10,False,IT Manager,2026-11-29
+4,AC.L1-B.1.III,External connections,Not Met,RDP jump host published to the internet without MFA; personal cloud storage not restricted,High,16,False,IT Manager,2026-12-13
+5,IA.L1-B.1.VI,Authentication,Not Met,Printer and two network switches still use factory default passwords,Medium,3,True,IT Manager,2026-12-13
+6,MP.L1-B.1.VII,Media disposal,Not Met,No media sanitization procedure; 11 old hard drives stored in an unlocked cabinet,Medium,6,False,IT Manager,2026-12-20
+7,IA.L1-B.1.V,Identification,Partial,One shared shop-floor login used by 6 machine operators,Medium,8,False,Production Manager,2026-12-27
+8,SC.L1-B.1.X,Boundary protection,Partial,Firewall in place but logs are not reviewed by anyone,Medium,12,False,IT Manager,2027-01-10
+9,PE.L1-B.1.IX,Manage visitors & physical access,Partial,Visitor log exists but no written escort rule; badge reader logs not reviewed,Low,3,True,Facilities,2027-01-10

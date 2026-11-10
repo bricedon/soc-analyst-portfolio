@@ -1,0 +1,11 @@
+[
+  {
+    "rule": "ENCODED_POWERSHELL",
+    "parent_image": "C:\\Windows\\CCM\\CcmExec.exe",
+    "user": "NT AUTHORITY\\SYSTEM",
+    "decoded_must_contain": "Get-HotFix",
+    "reason": "SCCM hotfix inventory script",
+    "owner": "IT Ops",
+    "review_date": "2027-04-01"
+  }
+]

@@ -1,0 +1,16 @@
+id,status,evidence,gap,risk,effort_hours,owner,related_lab
+AC.L1-B.1.I,Partial,AD user export 2026-11-10; HR leaver list,3 accounts of employees who left in 2026 are still enabled,High,2,IT Manager,
+AC.L1-B.1.II,Met,GPO report: standard users are not local administrators; screenshot of admin group,,Medium,0,IT Manager,
+AC.L1-B.1.III,Not Met,Firewall rule export,RDP jump host published to the internet without MFA; personal cloud storage not restricted,High,16,IT Manager,03 (F03) / 01 (INC-0001)
+AC.L1-B.1.IV,Met,Website publishing procedure v1.2 with approval step,,Low,0,Marketing,
+IA.L1-B.1.V,Partial,AD user export,One shared shop-floor login used by 6 machine operators,Medium,8,Production Manager,
+IA.L1-B.1.VI,Not Met,Device inventory,Printer and two network switches still use factory default passwords,Medium,3,IT Manager,03 (F08)
+MP.L1-B.1.VII,Not Met,Interview with IT,No media sanitization procedure; 11 old hard drives stored in an unlocked cabinet,Medium,6,IT Manager,
+PE.L1-B.1.VIII,Met,Badge system report; server closet lock photo,,Medium,0,Facilities,
+PE.L1-B.1.IX,Partial,Visitor sign-in sheet (paper),Visitor log exists but no written escort rule; badge reader logs not reviewed,Low,3,Facilities,
+SC.L1-B.1.X,Partial,Firewall configuration,Firewall in place but logs are not reviewed by anyone,Medium,12,IT Manager,01 / 05
+SC.L1-B.1.XI,Met,Website hosted by external provider; no inbound path to internal network,,Low,0,IT Manager,
+SI.L1-B.1.XII,Not Met,Vulnerability register 2026-11-12,Two P1 vulnerabilities are past their remediation date (RDP exposure; browser on 9 PCs),High,10,IT Manager,03 (revalidation)
+SI.L1-B.1.XIII,Met,Defender console: 34/34 endpoints protected,,High,0,IT Manager,
+SI.L1-B.1.XIV,Met,Defender console: signatures updated within 24 h on all endpoints,,Medium,0,IT Manager,
+SI.L1-B.1.XV,Not Assessed,,"No evidence received for scheduled scans and real-time scanning of downloads, email and USB",Medium,1,IT Manager,
