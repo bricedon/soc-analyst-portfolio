@@ -1,0 +1,71 @@
+``` ======================================================================
+SOC Detection & IR Lab - Splunk SPL
+Data: upload data/events.jsonl to Splunk (Settings > Add Data > Upload),
+      Source type: _json, Index: main. Timestamps come from the "time" field.
+
+STATUS: written for Splunk Enterprise / Splunk Free 9.x. NOT executed in this
+repository (no Splunk instance in the build environment). The Python detection
+(detect.py) is the tested reference implementation. Validating these queries
+in Splunk is Exercise S1-J5 in ../TRAINING-PLAN.md (repo root).
+====================================================================== ```
+
+
+``` ---------------------------------------------------------------------
+Q1 - DETECTION: >= 5 failures (4625) for the same user + source IP in a
+     sliding 10-minute window, followed by a success (4624) for that user
+     + IP within 30 minutes.  ATT&CK T1110.001 -> T1078
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json (EventCode=4624 OR EventCode=4625) IpAddress!="-" IpAddress!="127.0.0.1"
+| eval user=lower(TargetUserName), is_fail=if(EventCode=4625, 1, 0)
+| sort 0 _time
+| streamstats time_window=10m sum(is_fail) as fails_10m by user IpAddress
+| eval burst_time=if(EventCode=4625 AND fails_10m>=5, _time, null())
+| streamstats last(burst_time) as last_burst_time max(fails_10m) as max_fails_10m by user IpAddress
+| where EventCode=4624 AND isnotnull(last_burst_time) AND (_time - last_burst_time) <= 1800
+| eval success_time=strftime(_time, "%Y-%m-%d %H:%M:%S"), last_failure=strftime(last_burst_time, "%Y-%m-%d %H:%M:%S")
+| table success_time user IpAddress Computer LogonType WorkstationName max_fails_10m last_failure
+
+
+``` ---------------------------------------------------------------------
+Q2 - TRIAGE: everything the source IP did (all users, all event codes)
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json IpAddress="203.0.113.45"
+| stats count min(_time) as first max(_time) as last values(SubStatus) as substatus by EventCode TargetUserName Computer LogonType
+| convert ctime(first) ctime(last)
+
+
+``` ---------------------------------------------------------------------
+Q3 - TRIAGE: what did the account do in the 60 minutes after the logon?
+     (4672 privileges, 4720 account created, 4732 added to a group)
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json (TargetUserName="a.morgan" OR SubjectUserName="a.morgan")
+    earliest="10/14/2026:02:00:00" latest="10/14/2026:03:30:00"
+| table _time EventCode Computer TargetUserName SubjectUserName MemberName IpAddress LogonType
+| sort _time
+
+
+``` ---------------------------------------------------------------------
+Q4 - SCOPE: is the user's normal activity from somewhere else?
+     (compare the suspicious source with the user's usual sources)
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json EventCode=4624 TargetUserName="a.morgan"
+| stats count min(_time) as first max(_time) as last values(LogonType) as logon_types by IpAddress WorkstationName Computer
+| convert ctime(first) ctime(last)
+
+
+``` ---------------------------------------------------------------------
+Q5 - SCOPE: was the new account used anywhere?
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json (TargetUserName="support_tmp" OR SubjectUserName="support_tmp" OR MemberName="support_tmp")
+| table _time EventCode Computer TargetUserName SubjectUserName MemberName IpAddress
+
+
+``` ---------------------------------------------------------------------
+Q6 - NOISE REVIEW: top failure sources (find misconfigured services,
+     internet scanning, and anything the threshold rule does not see)
+--------------------------------------------------------------------- ```
+index=main sourcetype=_json EventCode=4625
+| stats count dc(TargetUserName) as users values(SubStatus) as substatus min(_time) as first max(_time) as last by IpAddress
+| eval duration_min=round((last-first)/60, 0)
+| convert ctime(first) ctime(last)
+| sort - count

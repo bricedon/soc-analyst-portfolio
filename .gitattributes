@@ -1,0 +1,2 @@
+# Keep generated data byte-for-byte identical on Windows (no CRLF conversion)
+*/data/* -text

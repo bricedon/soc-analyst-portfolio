@@ -1,0 +1,25 @@
+hostname,ip,role,internet_exposed,owner
+SRV-DC01,10.10.10.5,Domain controller,no,IT
+SRV-FILE01,10.10.10.15,File server,no,IT
+SRV-RDP01,10.10.10.30,RDP jump host,yes,IT
+SRV-MFP01,10.10.10.50,Printer / scanner,no,IT
+WKS-0101,10.10.20.101,Workstation,no,a.morgan
+WKS-0117,10.10.20.117,Workstation,no,j.rivera
+WKS-0122,10.10.20.122,Workstation,no,k.chen
+WKS-0103,10.10.20.103,Workstation,no,m.ali
+WKS-0104,10.10.20.104,Workstation,no,s.patel
+WKS-0105,10.10.20.105,Workstation,no,d.okafor
+WKS-0106,10.10.20.106,Workstation,no,l.nguyen
+WKS-0107,10.10.20.107,Workstation,no,r.brown
+WKS-0108,10.10.20.108,Workstation,no,t.wilson
+WKS-0109,10.10.20.109,Workstation,no,p.garcia
+WKS-0110,10.10.20.110,Workstation,no,c.kim
+WKS-0111,10.10.20.111,Workstation,no,e.martin
+WKS-0112,10.10.20.112,Workstation,no,b.johnson
+WKS-0113,10.10.20.113,Workstation,no,n.diallo
+WKS-0114,10.10.20.114,Workstation,no,g.lopez
+WKS-0115,10.10.20.115,Workstation,no,h.schmidt
+WKS-0116,10.10.20.116,Workstation,no,i.rossi
+WKS-0118,10.10.20.118,Workstation,no,f.mensah
+WKS-0119,10.10.20.119,Workstation,no,o.tanaka
+WKS-0120,10.10.20.120,Workstation,no,v.silva

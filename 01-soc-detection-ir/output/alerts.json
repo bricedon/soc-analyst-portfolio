@@ -1,0 +1,82 @@
+[
+  {
+    "alert_id": "ALERT-001",
+    "rule": "BruteForceThenSuccess (>= 5 fails / 10 min, success within 30 min)",
+    "user": "a.morgan",
+    "src_ip": "203.0.113.45",
+    "target_host": "SRV-RDP01",
+    "first_failure": "2026-10-14T02:13:24Z",
+    "last_failure": "2026-10-14T02:18:46Z",
+    "failure_count": 14,
+    "max_failures_in_window": 14,
+    "success_time": "2026-10-14T02:19:58Z",
+    "success_logon_type": 10,
+    "src_workstation_name": "DESKTOP-7K2Q9P",
+    "context": {
+      "src_ip_internal": false,
+      "user_known": true,
+      "user_department": "IT",
+      "user_privileged": true,
+      "user_assigned_workstation": "WKS-0101",
+      "src_is_users_workstation": false,
+      "target_role": "RDP jump host",
+      "target_internet_exposed": true,
+      "password_changed_2h_before": false,
+      "special_privileges_after": true,
+      "account_changes_after": [
+        "4720 support_tmp",
+        "4732 Administrators support_tmp"
+      ],
+      "other_usernames_tried_from_ip": [
+        "alex.morgan",
+        "amorgan"
+      ]
+    },
+    "score": 100,
+    "severity": "High",
+    "score_reasons": [
+      "base: brute force followed by success (+40)",
+      "source IP is external (+20)",
+      "target host is internet-exposed (+5)",
+      "account is privileged (+15)",
+      "special privileges assigned at logon (4672) (+5)",
+      "account created / group membership changed after logon (+20)",
+      "same IP tried other usernames (+5)"
+    ]
+  },
+  {
+    "alert_id": "ALERT-002",
+    "rule": "BruteForceThenSuccess (>= 5 fails / 10 min, success within 30 min)",
+    "user": "j.rivera",
+    "src_ip": "10.10.20.117",
+    "target_host": "SRV-FILE01",
+    "first_failure": "2026-10-14T09:01:10Z",
+    "last_failure": "2026-10-14T09:08:24Z",
+    "failure_count": 9,
+    "max_failures_in_window": 9,
+    "success_time": "2026-10-14T09:11:22Z",
+    "success_logon_type": 3,
+    "src_workstation_name": "WKS-0117",
+    "context": {
+      "src_ip_internal": true,
+      "user_known": true,
+      "user_department": "Finance",
+      "user_privileged": false,
+      "user_assigned_workstation": "WKS-0117",
+      "src_is_users_workstation": true,
+      "target_role": "File server",
+      "target_internet_exposed": false,
+      "password_changed_2h_before": true,
+      "special_privileges_after": false,
+      "account_changes_after": [],
+      "other_usernames_tried_from_ip": []
+    },
+    "score": 5,
+    "severity": "Low",
+    "score_reasons": [
+      "base: brute force followed by success (+40)",
+      "user changed own password shortly before (stale credential pattern) (-20)",
+      "source is the user's assigned workstation (-15)"
+    ]
+  }
+]

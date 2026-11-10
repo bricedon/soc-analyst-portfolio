@@ -1,0 +1,23 @@
+username,full_name,department,privileged,assigned_workstation
+a.morgan,Alex Morgan,IT,True,WKS-0101
+j.rivera,Jose Rivera,Finance,False,WKS-0117
+k.chen,Kelly Chen,HR,False,WKS-0122
+m.ali,Mohamed Ali,Operations,False,WKS-0103
+s.patel,Sana Patel,Finance,False,WKS-0104
+d.okafor,David Okafor,IT,True,WKS-0105
+l.nguyen,Linh Nguyen,Operations,False,WKS-0106
+r.brown,Rachel Brown,Sales,False,WKS-0107
+t.wilson,Tom Wilson,Sales,False,WKS-0108
+p.garcia,Paula Garcia,HR,False,WKS-0109
+c.kim,Chris Kim,Operations,False,WKS-0110
+e.martin,Emma Martin,Finance,False,WKS-0111
+b.johnson,Ben Johnson,Operations,False,WKS-0112
+n.diallo,Nadia Diallo,Sales,False,WKS-0113
+g.lopez,Gabriel Lopez,Operations,False,WKS-0114
+h.schmidt,Hanna Schmidt,Legal,False,WKS-0115
+i.rossi,Ivan Rossi,Operations,False,WKS-0116
+f.mensah,Fatou Mensah,Finance,False,WKS-0118
+o.tanaka,Omar Tanaka,Sales,False,WKS-0119
+v.silva,Vera Silva,Operations,False,WKS-0120
+svc-backup,Backup service,IT,True,
+svc-scanner,Scan-to-folder service,IT,False,
