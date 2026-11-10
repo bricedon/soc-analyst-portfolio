@@ -115,7 +115,8 @@ def tree(events: List[Dict], host: str) -> List[str]:
 
     def walk(e, depth):
         cmd = e["CommandLine"]
-        lines.append(f'{"   " * depth}{"\\_ " if depth else ""}{e["UtcTime"][11:19]}  {base(e["Image"])}  '
+        branch = "\\_ " if depth else ""
+        lines.append(f'{"   " * depth}{branch}{e["UtcTime"][11:19]}  {base(e["Image"])}  '
                      f'[{e["User"]}]  {cmd[:90] + ("..." if len(cmd) > 90 else "")}')
         for child in by_parent.get(e["ProcessGuid"], []):
             walk(child, depth + 1)
